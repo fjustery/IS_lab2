@@ -1,4 +1,6 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createHashRouter, Navigate } from 'react-router'
+import { ImportFilePage } from '@/pages/import-file'
+import { ImportsPage } from '@/pages/imports'
 import { LoginPage } from '@/pages/login'
 import { OrganizationCreatePage } from '@/pages/organization-create'
 import { OrganizationEditPage } from '@/pages/organization-edit'
@@ -18,7 +20,7 @@ import { SpecialOperationsPage } from '@/pages/special-operations'
 import { AppLayout } from './AppLayout'
 import { GuestOnlyRoute, ProtectedRoute } from './guards'
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   { path: 'login', element: <GuestOnlyRoute><LoginPage /></GuestOnlyRoute> },
   { path: 'register', element: <GuestOnlyRoute><RegisterPage /></GuestOnlyRoute> },
   {
@@ -35,6 +37,7 @@ export const router = createBrowserRouter([
         element: <ProductsPage />,
         children: [
           { path: 'new', element: <ProductCreatePage /> },
+          { path: 'import', element: <ImportFilePage resourceType="products" /> },
           { path: ':id', element: <ProductViewPage /> },
           { path: ':id/edit', element: <ProductEditPage /> },
         ],
@@ -44,6 +47,7 @@ export const router = createBrowserRouter([
         element: <OrganizationsPage />,
         children: [
           { path: 'new', element: <OrganizationCreatePage /> },
+          { path: 'import', element: <ImportFilePage resourceType="organizations" /> },
           { path: ':id', element: <OrganizationViewPage /> },
           { path: ':id/edit', element: <OrganizationEditPage /> },
         ],
@@ -53,10 +57,12 @@ export const router = createBrowserRouter([
         element: <PersonsPage />,
         children: [
           { path: 'new', element: <PersonCreatePage /> },
+          { path: 'import', element: <ImportFilePage resourceType="persons" /> },
           { path: ':id', element: <PersonViewPage /> },
           { path: ':id/edit', element: <PersonEditPage /> },
         ],
       },
+      { path: 'imports', element: <ImportsPage /> },
       {
         path: 'special',
         element: <SpecialOperationsPage />,

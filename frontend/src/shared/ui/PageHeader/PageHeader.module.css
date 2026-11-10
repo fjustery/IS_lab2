@@ -9,3 +9,8 @@
   margin: 0;
   font-size: 22px;
 }
+
+.actions {
+  display: flex;
+  gap: 12px;
+}

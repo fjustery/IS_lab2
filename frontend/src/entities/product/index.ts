@@ -13,6 +13,7 @@ export type {
 } from './model/types'
 export { productSchema } from './model/schema'
 export type { ProductFormValues } from './model/schema'
+export { productImportItemSchema } from './model/importSchema'
 export { emptyProductFormValues, formValuesToInput, productToFormValues } from './model/mapping'
 export {
   productApi,

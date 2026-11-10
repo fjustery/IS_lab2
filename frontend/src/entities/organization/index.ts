@@ -9,6 +9,7 @@ export type {
 } from './model/types'
 export { organizationSchema, emptyOrganizationFormValues } from './model/schema'
 export type { OrganizationFormValues } from './model/schema'
+export { organizationImportItemSchema } from './model/importSchema'
 export { formValuesToOrganizationInput, organizationToFormValues } from './model/mapping'
 export {
   organizationApi,

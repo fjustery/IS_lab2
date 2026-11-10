@@ -6,7 +6,13 @@ import { PersonsTable } from '@/widgets/persons-table'
 export function PersonsPage() {
   return (
     <>
-      <PageHeader title="Персоны" createLabel="Создать" createTo={routes.personNew} />
+      <PageHeader
+        title="Персоны"
+        createLabel="Создать"
+        createTo={routes.personNew}
+        importLabel="Импортировать"
+        importTo={routes.personImport}
+      />
       <PersonsTable />
       <Outlet />
     </>

@@ -10,7 +10,11 @@ export const personSchema = z
     eyeColor: z.string(),
     hairColor: z.enum(COLORS, { error: SELECT_REQUIRED }),
     location: locationGroupSchema,
-    weight: z.number({ error: 'Введите число' }).positive('Вес должен быть больше 0').nullable(),
+    weight: z
+      .number({ error: 'Введите число' })
+      .int('Значение должно быть целым')
+      .positive('Вес должен быть больше 0')
+      .nullable(),
     nationality: z.enum(COUNTRIES, { error: SELECT_REQUIRED }),
   })
   .superRefine((person, ctx) => {

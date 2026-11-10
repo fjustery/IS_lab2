@@ -8,7 +8,7 @@ import styles from './DataTable.module.css'
 export interface DataTableColumn<T> {
   id: string
   title: string
-  sortField: string
+  sortField?: string
   filter?: { key: string } & FilterKind
   render: (row: T) => ReactNode
 }
@@ -89,7 +89,8 @@ export function DataTable<T>({
           <thead>
             <tr>
               {columns.map((column) => {
-                const active = sort?.field === column.sortField ? sort.direction : undefined
+                const { sortField } = column
+                const active = sortField && sort?.field === sortField ? sort.direction : undefined
                 return (
                   <th
                     key={column.id}
@@ -97,11 +98,11 @@ export function DataTable<T>({
                       active === 'asc' ? 'ascending' : active === 'desc' ? 'descending' : undefined
                     }
                   >
-                    {onToggleSort ? (
+                    {onToggleSort && sortField ? (
                       <Button
                         variant="ghost"
                         className={styles.sortButton}
-                        onClick={() => onToggleSort(column.sortField)}
+                        onClick={() => onToggleSort(sortField)}
                       >
                         {column.title}
                         <span className={styles.arrow} aria-hidden>

@@ -6,3 +6,4 @@ export {
   emptyAddressFormValues,
 } from './model/schema'
 export type { AddressFormValues } from './model/schema'
+export { addressImportSchema } from './model/importSchema'

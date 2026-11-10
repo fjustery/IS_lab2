@@ -7,3 +7,4 @@ export {
   locationToFormValues,
 } from '../model/schema'
 export type { LocationFormValues } from '../model/schema'
+export { locationImportSchema } from '../model/importSchema'

@@ -6,7 +6,13 @@ import { ProductsTable } from '@/widgets/products-table'
 export function ProductsPage() {
   return (
     <>
-      <PageHeader title="Продукция" createLabel="Создать" createTo={routes.productNew} />
+      <PageHeader
+        title="Продукция"
+        createLabel="Создать"
+        createTo={routes.productNew}
+        importLabel="Импортировать"
+        importTo={routes.productImport}
+      />
       <ProductsTable />
       <Outlet />
     </>

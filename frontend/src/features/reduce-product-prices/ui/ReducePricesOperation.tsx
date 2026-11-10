@@ -18,7 +18,7 @@ export function ReducePricesOperation() {
 
     try {
       const result = await reducePrices({ percent: value }).unwrap()
-      setMessage(`Цена снижена на ${result.message}%`)
+      setMessage(`${result.message}`)
       setError(undefined)
     } catch (err) {
       setError(getErrorMessage(err, 'Не удалось выполнить операцию'))

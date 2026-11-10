@@ -9,6 +9,7 @@ const links = [
   { to: routes.products, label: 'Продукция' },
   { to: routes.organizations, label: 'Организации' },
   { to: routes.persons, label: 'Персоны' },
+  { to: routes.imports, label: 'Журнал импорта' },
   { to: routes.special, label: 'СВО' },
 ]
 

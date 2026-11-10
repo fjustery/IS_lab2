@@ -59,7 +59,7 @@ export const columns: DataTableColumn<Product>[] = [
   },
 ]
 
-export const SORT_FIELDS = new Set(columns.map((column) => column.sortField))
+export const SORT_FIELDS = new Set(columns.flatMap((column) => (column.sortField ? [column.sortField] : [])))
 
 export const FILTER_KEYS: FilterKey[] = columns.flatMap((column) =>
   column.filter ? [column.filter.key as FilterKey] : [],
